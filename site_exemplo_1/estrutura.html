@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oficina de HTML e CSS</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<header>
+    <h1>Oficina de HTML e CSS</h1>
+    <p>Aprenda a criar páginas web do zero.</p>
+
+    <nav>
+        <a href="#html">HTML</a>
+        <a href="#css">CSS</a>
+        <a href="#elementos">Elementos</a>
+        <a href="#formulario">Formulário</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="card">
+    <h2>O que você aprenderá</h2>
+
+    <p>
+        Nesta oficina você dará os primeiros passos no desenvolvimento web.
+        Aprenderá como criar páginas utilizando <strong>HTML</strong> para a
+        estrutura e <strong>CSS</strong> para o visual.
+    </p>
+
+    <ul>
+        <li>Estrutura básica de um documento HTML</li>
+        <li>Títulos e parágrafos</li>
+        <li>Imagens</li>
+        <li>Links</li>
+        <li>Listas</li>
+        <li>Tabelas</li>
+        <li>Formulários</li>
+        <li>Estilização com CSS</li>
+    </ul>
+</section>
+
+<section class="card" id="html">
+    <h2>HTML: Estrutura da página</h2>
+
+    <p>
+        HTML significa <strong>HyperText Markup Language</strong>. Ele organiza o
+        conteúdo da página utilizando diversas tags.
+    </p>
+
+    <pre>
+&lt;h1&gt;Título&lt;/h1&gt;
+&lt;p&gt;Um parágrafo.&lt;/p&gt;
+&lt;img src="foto.jpg"&gt;
+    </pre>
+</section>
+
+<section class="card" id="css">
+    <h2>CSS: Aparência da página</h2>
+
+    <p>
+        CSS significa <strong>Cascading Style Sheets</strong>. Ele controla cores,
+        fontes, espaçamentos e posicionamento dos elementos.
+    </p>
+
+    <pre>
+body{
+    background:#f4f4f4;
+}
+
+h1{
+    color:steelblue;
+}
+    </pre>
+</section>
+
+<section class="card" id="elementos">
+
+    <h2>Exemplos de elementos HTML</h2>
+
+    <h3>Títulos</h3>
+
+    <h1>Título H1</h1>
+    <h2>Título H2</h2>
+    <h3>Título H3</h3>
+    <h4>Título H4</h4>
+
+    <hr>
+
+    <h3>Texto</h3>
+
+    <p>Este é um <strong>texto em negrito</strong>.</p>
+
+    <p>Este é um <em>texto em itálico</em>.</p>
+
+    <p>Você também pode criar <mark>destaques</mark>.</p>
+
+    <blockquote>
+        "A melhor maneira de aprender programação é praticando."
+    </blockquote>
+
+</section>
+
+<section class="card">
+
+    <h2>Galeria de imagens</h2>
+
+    <div class="galeria">
+
+        <img src="https://picsum.photos/300?1" alt="">
+
+        <img src="https://picsum.photos/300?2" alt="">
+
+        <img src="https://picsum.photos/300?3" alt="">
+
+    </div>
+
+</section>
+
+<section class="card">
+
+    <h2>Links</h2>
+
+    <p>
+        Exemplo de um link para
+        <a href="https://developer.mozilla.org/" target="_blank">
+            MDN Web Docs
+        </a>.
+    </p>
+
+</section>
+
+<section class="card">
+
+    <h2>Lista Ordenada</h2>
+
+    <ol>
+        <li>Planejar</li>
+        <li>Escrever HTML</li>
+        <li>Adicionar CSS</li>
+        <li>Testar</li>
+    </ol>
+
+    <h2>Lista Não Ordenada</h2>
+
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+</section>
+
+<section class="card">
+
+    <h2>Tabela</h2>
+
+    <table>
+
+        <tr>
+            <th>Linguagem</th>
+            <th>Função</th>
+        </tr>
+
+        <tr>
+            <td>HTML</td>
+            <td>Estrutura</td>
+        </tr>
+
+        <tr>
+            <td>CSS</td>
+            <td>Visual</td>
+        </tr>
+
+        <tr>
+            <td>JavaScript</td>
+            <td>Interatividade</td>
+        </tr>
+
+    </table>
+
+</section>
+
+<section class="card" id="formulario">
+
+    <h2>Formulário</h2>
+
+    <form>
+
+        <label>Nome</label>
+        <input type="text" placeholder="Digite seu nome">
+
+        <label>Email</label>
+        <input type="email" placeholder="Digite seu email">
+
+        <label>Idade</label>
+        <input type="number">
+
+        <label>Data de nascimento</label>
+        <input type="date">
+
+        <label>Cor favorita</label>
+        <input type="color">
+
+        <label>Curso</label>
+
+        <select>
+            <option>HTML</option>
+            <option>CSS</option>
+            <option>JavaScript</option>
+        </select>
+
+        <label>Conte um pouco sobre você</label>
+
+        <textarea rows="5"></textarea>
+
+        <label>
+            <input type="checkbox">
+            Aceito participar da oficina.
+        </label>
+
+        <button type="submit">Enviar</button>
+
+    </form>
+
+</section>
+
+
+
+</main>
+
+<footer>
+    <p>Oficina de HTML e CSS • Página de demonstração</p>
+</footer>
+
+</body>
+</html>
