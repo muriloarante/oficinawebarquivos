@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Laboratório JavaScript - Página Didática</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#1e1e1e;
+    color:white;
+    font-family:Arial;
+}
+
+header{
+    background:#0b63ce;
+    padding:20px;
+    text-align:center;
+}
+
+section{
+    background:#2c2c2c;
+    margin:20px;
+    padding:20px;
+    border-radius:10px;
+}
+
+button{
+    padding:10px;
+    cursor:pointer;
+    margin:5px;
+}
+
+input,textarea{
+    width:100%;
+    padding:8px;
+    margin:8px 0;
+}
+
+pre{
+    background:black;
+    color:#00ff00;
+    padding:10px;
+    overflow:auto;
+}
+
+canvas{
+    background:white;
+}
+
+#bola{
+    width:40px;
+    height:40px;
+    background:red;
+    border-radius:50%;
+    position:relative;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>Laboratório JavaScript</h1>
+
+<p>Uma página única contendo vários exemplos práticos.</p>
+
+</header>
+
+<section>
+
+<h2>1 - Manipulação do DOM</h2>
+
+<p id="texto">
+Este texto será alterado.
+</p>
+
+<button onclick="alterarTexto()">
+Alterar Texto
+</button>
+
+</section>
+
+<section>
+
+<h2>2 - Número Aleatório</h2>
+
+<button onclick="numeroAleatorio()">
+Gerar
+</button>
+
+<h3 id="random"></h3>
+
+</section>
+
+<section>
+
+<h2>3 - Relógio em Tempo Real</h2>
+
+<h1 id="relogio"></h1>
+
+</section>
+
+<section>
+
+<h2>4 - Conversor Celsius → Fahrenheit</h2>
+
+<input id="celsius" type="number">
+
+<button onclick="converterTemp()">
+Converter
+</button>
+
+<p id="temp"></p>
+
+</section>
+
+<section>
+
+<section>
+
+<h2>5 - Copiar Texto</h2>
+
+<textarea id="copiar">
+Olá JavaScript!
+</textarea>
+
+<button onclick="copiarTexto()">
+Copiar
+</button>
+
+</section>
+
+
+<section>
+
+<h2>6 - IMC</h2>
+
+<input id="peso" placeholder="Peso">
+
+<input id="altura" placeholder="Altura">
+
+<button onclick="imc()">
+Calcular
+</button>
+
+<p id="imcResultado"></p>
+
+</section>
+
+<section>
+
+<h2>7 - Gerador de Senha</h2>
+
+<button onclick="senha()">
+Gerar
+</button>
+
+<h3 id="senha"></h3>
+
+</section>
+
+<section>
+
+<h2>8 - Contador de Caracteres</h2>
+
+<textarea id="textoGrande"
+oninput="contador()"></textarea>
+
+<p id="contador"></p>
+
+</section>
+
+<section>
+
+<h2>9 - Color Picker</h2>
+
+<input type="color"
+id="cor"
+oninput="trocarCor()">
+
+</section>
+
+
+<section>
+
+<h2>10 - Cronômetro</h2>
+
+<h2 id="cronometro">
+0
+</h2>
+
+<button onclick="iniciarCronometro()">
+Iniciar
+</button>
+
+<button onclick="pararCronometro()">
+Parar
+</button>
+
+</section>
+
+<section>
+
+<h2>11 - Animação</h2>
+
+<div id="bola"></div>
+
+<button onclick="animar()">
+Mover
+</button>
+
+</section>
+
+
+<script>
+
+function alterarTexto(){
+
+document.getElementById("texto").innerHTML=
+"O DOM foi alterado utilizando JavaScript.";
+
+}
+
+function numeroAleatorio(){
+
+document.getElementById("random").innerHTML=
+Math.floor(Math.random()*1000);
+
+}
+
+setInterval(function(){
+
+document.getElementById("relogio").innerHTML=
+new Date().toLocaleTimeString();
+
+},1000);
+
+function converterTemp(){
+
+let c=
+Number(document.getElementById("celsius").value);
+
+let f=
+(c*9/5)+32;
+
+document.getElementById("temp").innerHTML=
+f.toFixed(2)+" °F";
+
+}
+
+function mostrarArray(){
+
+let lista=["HTML","CSS","JS","Python"];
+
+document.getElementById("array").textContent=
+lista.join("\n");
+
+}
+
+function mostrarObjeto(){
+
+let pessoa={
+
+nome:"Ana",
+
+idade:22,
+
+curso:"Computação"
+
+};
+
+document.getElementById("objeto").textContent=
+JSON.stringify(pessoa,null,4);
+
+}
+
+function mostrarJSON(){
+
+let obj={
+
+x:10,
+
+y:20
+
+};
+
+document.getElementById("json").textContent=
+JSON.stringify(obj);
+
+}
+
+function salvarNome(){
+
+localStorage.setItem(
+"nome",
+document.getElementById("nome").value
+);
+
+}
+
+function carregarNome(){
+
+document.getElementById("nomeSalvo").innerHTML=
+localStorage.getItem("nome");
+
+}
+
+async function copiarTexto(){
+
+await navigator.clipboard.writeText(
+
+document.getElementById("copiar").value
+
+);
+
+alert("Copiado!");
+
+}
+
+function desenhar(){
+
+let c=
+document.getElementById("canvas");
+
+let ctx=
+c.getContext("2d");
+
+ctx.fillStyle="blue";
+
+ctx.fillRect(20,20,100,100);
+
+ctx.beginPath();
+
+ctx.arc(180,70,40,0,Math.PI*2);
+
+ctx.fillStyle="red";
+
+ctx.fill();
+
+}
+
+function imc(){
+
+let p=
+Number(document.getElementById("peso").value);
+
+let a=
+Number(document.getElementById("altura").value);
+
+let r=
+p/(a*a);
+
+document.getElementById("imcResultado").innerHTML=
+r.toFixed(2);
+
+}
+
+function senha(){
+
+let c=
+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%";
+
+let s="";
+
+for(let i=0;i<16;i++){
+
+s+=c[Math.floor(Math.random()*c.length)];
+
+}
+
+document.getElementById("senha").innerHTML=s;
+
+}
+
+function contador(){
+
+document.getElementById("contador").innerHTML=
+
+document.getElementById("textoGrande").value.length;
+
+}
+
+function trocarCor(){
+
+document.body.style.background=
+
+document.getElementById("cor").value;
+
+}
+
+function converterBase(){
+
+document.getElementById("base64").textContent=
+
+btoa(
+
+document.getElementById("base").value
+
+);
+
+}
+
+function gerarHash(){
+
+let texto=
+
+document.getElementById("hash").value;
+
+let h=0;
+
+for(let i=0;i<texto.length;i++){
+
+h=((h<<5)-h)+texto.charCodeAt(i);
+
+}
+
+document.getElementById("resultadoHash").textContent=h;
+
+}
+
+let tempo=0;
+
+let intervalo;
+
+function iniciarCronometro(){
+
+clearInterval(intervalo);
+
+intervalo=setInterval(()=>{
+
+tempo++;
+
+document.getElementById("cronometro").innerHTML=tempo;
+
+},1000);
+
+}
+
+function pararCronometro(){
+
+clearInterval(intervalo);
+
+}
+
+function animar(){
+
+let bola=document.getElementById("bola");
+
+let x=0;
+
+let mover=setInterval(()=>{
+
+x++;
+
+bola.style.left=x+"px";
+
+if(x>500)
+
+clearInterval(mover);
+
+},5);
+
+}
+
+function logs(){
+
+let txt="";
+
+for(let i=1;i<=10;i++){
+
+txt+="Linha "+i+"\n";
+
+console.log(i);
+
+}
+
+document.getElementById("logs").textContent=txt;
+
+}
+
+</script>
+
+</body>
+</html>
